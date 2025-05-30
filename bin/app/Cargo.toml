@@ -1,0 +1,16 @@
+[package]
+name = "app"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Main application binary"
+license.workspace = true
+
+[dependencies]
+common = { path = "../../crates/common" }
+core = { path = "../../crates/core" }
+utils = { path = "../../crates/utils" }
+tokio.workspace = true
+anyhow.workspace = true
+log.workspace = true
+env_logger.workspace = true 

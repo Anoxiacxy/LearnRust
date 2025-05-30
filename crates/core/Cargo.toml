@@ -1,0 +1,15 @@
+[package]
+name = "core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Core business logic"
+license.workspace = true
+
+[dependencies]
+common = { path = "../common" }
+tokio.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+log.workspace = true
+anyhow.workspace = true 
