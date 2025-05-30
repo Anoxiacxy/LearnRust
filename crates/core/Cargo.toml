@@ -12,4 +12,5 @@ tokio.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 log.workspace = true
-anyhow.workspace = true 
+anyhow.workspace = true
+async-trait = "0.1" 

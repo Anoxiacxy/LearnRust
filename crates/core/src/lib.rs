@@ -1,5 +1,8 @@
+use common::Result;
 use log::{error, info};
 use thiserror::Error;
+
+pub mod services;
 
 #[derive(Error, Debug)]
 pub enum CoreError {
@@ -11,6 +14,7 @@ pub enum CoreError {
 
 pub type CoreResult<T> = std::result::Result<T, CoreError>;
 
+#[derive(Clone)]
 pub struct CoreService {
     config: common::types::Config,
 }
@@ -30,3 +34,6 @@ impl CoreService {
         Ok(format!("Processed: {}", input))
     }
 }
+
+// Re-export commonly used types
+pub use services::{User, UserService, UserServiceImpl};

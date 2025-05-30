@@ -1,6 +1,6 @@
 use anyhow::Result;
-use common::types::Config;
-use core::CoreService;
+use common::{types::Config, Container};
+use core::{CoreService, UserService, UserServiceImpl};
 use log::info;
 
 #[tokio::main]
@@ -17,13 +17,32 @@ async fn main() -> Result<()> {
         version: env!("CARGO_PKG_VERSION").to_string(),
     };
 
-    // Create and start core service
-    let service = CoreService::new(config);
-    service.start().await?;
+    // Create and configure DI container
+    let container = Container::new();
 
-    // Example usage
-    let result = service.process("Hello, World!").await?;
+    // Register services
+    container.register(CoreService::new(config.clone()))?;
+    container.register(UserServiceImpl::new())?;
+
+    // Resolve and use services
+    let core_service: CoreService = container.resolve()?;
+    let user_service: UserServiceImpl = container.resolve()?;
+
+    // Start core service
+    core_service.start().await?;
+
+    // Example usage of core service
+    let result = core_service.process("Hello, World!").await?;
     info!("Processing result: {}", result);
+
+    // Example usage of user service
+    let user = user_service
+        .create_user("John Doe".to_string(), "john@example.com".to_string())
+        .await?;
+    info!("Created user: {:?}", user);
+
+    let retrieved_user = user_service.get_user(user.id).await?;
+    info!("Retrieved user: {:?}", retrieved_user);
 
     // Example of using utils
     let capitalized = utils::string::capitalize("hello");
