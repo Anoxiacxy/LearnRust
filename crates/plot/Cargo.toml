@@ -1,0 +1,16 @@
+[package]
+name = "plot"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+plotters = { version = "0.3.7", features = ["all_series", "line_series", "candlestick", "datetime", "svg_backend", "bitmap_backend"] }
+chrono = "0.4"
+data = { path = "../data" }
+common = { path = "../common" }
+anyhow = "1.0"
+log = "0.4"
+
+[lib]
+name = "plot"
+path = "src/lib.rs" 

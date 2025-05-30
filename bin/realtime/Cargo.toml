@@ -1,0 +1,11 @@
+[package]
+name = "realtime"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0"
+chrono = "0.4"
+data = { path = "../../crates/data" }
+termion = "2.0"
+tokio = { version = "1.0", features = ["full"] } 

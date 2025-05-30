@@ -1,16 +1,25 @@
 [package]
 name = "app"
-version.workspace = true
-edition.workspace = true
+version = "0.1.0"
+edition = "2021"
 authors.workspace = true
-description = "Main application binary"
+description = "Quantitative trading application"
 license.workspace = true
 
 [dependencies]
-common = { path = "../../crates/common" }
-core = { path = "../../crates/core" }
-utils = { path = "../../crates/utils" }
-tokio.workspace = true
-anyhow.workspace = true
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+chrono = "0.4"
+data = { path = "../../crates/data" }
+plot = { path = "../../crates/plot" }
+plotters = "0.3.7"
+rand = "0.8"
+tokio = { version = "1.0", features = ["full"] }
+futures = "0.3"
 log.workspace = true
-env_logger.workspace = true 
+env_logger.workspace = true
+async-trait.workspace = true
+tokio-stream.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+termion = "2.0" 
