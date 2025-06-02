@@ -1,0 +1,18 @@
+[package]
+name = "presentation"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+domain = { path = "../domain" }
+application = { path = "../application" }
+infrastructure = { path = "../infrastructure" }
+plot = { path = "../plot" }
+anyhow = "1.0"
+async-trait = "0.1"
+tokio = { version = "1.0", features = ["full"] }
+clap = { version = "4.4", features = ["derive"] }
+axum = "0.7"
+tower = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0" 
