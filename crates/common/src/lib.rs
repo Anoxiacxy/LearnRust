@@ -4,6 +4,7 @@ use thiserror::Error;
 
 pub mod config;
 pub mod di;
+pub mod utils;
 
 #[derive(Error, Debug)]
 pub enum CommonError {
@@ -38,15 +39,6 @@ pub mod types {
                 version: app_config.version,
             }
         }
-    }
-}
-
-pub mod utils {
-    use log::info;
-
-    pub fn init_logging() {
-        env_logger::init();
-        info!("Logging initialized");
     }
 }
 

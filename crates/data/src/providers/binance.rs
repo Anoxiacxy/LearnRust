@@ -61,7 +61,6 @@ impl BinanceDataProvider {
 
         let klines: Vec<KlineSummary> = match klines_enum {
             KlineSummaries::AllKlineSummaries(k) => k,
-            _ => vec![],
         };
 
         let market_data = klines

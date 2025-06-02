@@ -2,11 +2,15 @@
 resolver = "2"  # 使用 edition 2021 对应的解析器
 members = [
     "crates/common",
-    "crates/core",
-    "crates/utils",
     "crates/data",
     "crates/plot",
-    "bin/app"
+    "crates/app-core",
+    "crates/domain",
+    "crates/application", 
+    "crates/infrastructure",
+    "crates/presentation",
+    "bin/cli",
+    "bin/gui",
 ]
 
 [workspace.package]

@@ -147,8 +147,7 @@ impl ChartPlotter {
         // 设置X轴标签数量
         mesh.x_labels(x_labels);
 
-        // 设置Y轴标签数量（根据价格范围动态调整）
-        let price_step = (price_range / 5.0).round(); // 将价格范围分成5份
+        // 设置Y轴标签数量
         mesh.y_labels(5).y_label_formatter(&|y| format!("{:.2}", y));
 
         // 绘制网格
